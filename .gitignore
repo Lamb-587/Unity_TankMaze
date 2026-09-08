@@ -1,0 +1,21 @@
+# Unity 生成文件夹（不追踪）
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+
+# IDE / 系统文件
+.idea/
+.vs/
+.vscode/
+*.suo
+*.user
+.DS_Store
+
+# 崩溃报告
+sysinfo.txt
+*.stackdump
