@@ -48,10 +48,10 @@ public class RankPanel :BasePanel<RankPanel>
         //得数据
         List<RankInfo> list = GameDataManager.Instance.GetCurrentRankData().list;
         
-        // ① 先把所有面板项重置为"虚伪以待"
+        // ① 先把所有面板项重置为"虚位以待"
         for (int i = 0; i < 10; i++)
         {
-            labelPlayerName[i].content.text = "虚伪以待";
+            labelPlayerName[i].content.text = "虚位以待";
             labelScore[i].content.text = "0";
             labelPassTime[i].content.text = "0";
         }

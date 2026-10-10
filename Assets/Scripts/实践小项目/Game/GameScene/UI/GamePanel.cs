@@ -64,7 +64,7 @@ public class GamePanel :BasePanel<GamePanel>
     }
     public void UpdateHP(int maxHP,int HP)
     {
-        texHP.guiPos.width = (float)HP / maxHP * hpw;
+        texHP.guiPos.width = (float)HP / maxHP * texMaxHp.guiPos.width;
     }
     public void UpdateMaxHp(int maxHp)
     {

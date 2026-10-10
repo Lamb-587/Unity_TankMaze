@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8207524847611451915}
-  - component: {fileID: 6406186718783619137}
   - component: {fileID: 4226966512268509945}
   - component: {fileID: 8051836732053161807}
   m_Layer: 8
@@ -36,33 +35,6 @@ Transform:
   - {fileID: 7727957217365269479}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!54 &6406186718783619137
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417091998257082853}
-  serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 10
-  m_AngularDrag: 10
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
 --- !u!114 &4226966512268509945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +54,7 @@ MonoBehaviour:
   tankHead: {fileID: 3493169816437069413}
   moveSpeed: 15
   roundSpeed: 120
-  headRoundSpeed: 120
+  headRoundSpeed: 150
   deadEff: {fileID: 161024, guid: a1a6169fcb0543040a41c85eadcc2f3d, type: 3}
   nowWeapon: {fileID: 0}
   weaponPos: {fileID: 6606561384171616327}

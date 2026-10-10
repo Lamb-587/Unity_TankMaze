@@ -5,13 +5,15 @@ using UnityEngine;
 public enum E_PropType
 {
     Atk,
-    Def,MaxHp,Hp,
+    Def,
+    MaxHp,
+    Hp,
 }
 public class PropReward : MonoBehaviour
 {
     public E_PropType type = E_PropType.Def;
     public GameObject getEff;
-    public int changeValue=2;
+    public int changeValue=10;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == ("Player"))

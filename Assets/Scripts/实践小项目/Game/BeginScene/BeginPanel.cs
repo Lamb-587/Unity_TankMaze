@@ -58,5 +58,6 @@ public class BeginPanel :BasePanel<BeginPanel>
             LevelRankPanel.Instance.ShowMe();
             HideMe();
         };
+        
     }
 }
