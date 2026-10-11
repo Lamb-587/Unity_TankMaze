@@ -14,6 +14,12 @@ public class PropReward : MonoBehaviour
     public E_PropType type = E_PropType.Def;
     public GameObject getEff;
     public int changeValue=10;
+    /// <summary>
+    /// 时限Buff的持续时间（秒）。
+    /// 只对Atk和Def生效，MaxHp和Hp是永久的不走这个。
+    /// </summary>
+    [Header("时限Buff配置")]
+    public float buffDuration = 60f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == ("Player"))
@@ -22,10 +28,10 @@ public class PropReward : MonoBehaviour
             switch (type)
             {
                 case E_PropType.Atk:
-                    player.atk += changeValue;
+                    RewardPanel.Instance.AddReward(E_PropType.Atk, changeValue,buffDuration);
                     break;
                     case E_PropType.Def:
-                    player.def += changeValue;
+                    RewardPanel.Instance.AddReward(E_PropType.Def, changeValue, buffDuration);
                     break;
                     case E_PropType.MaxHp:
                     //GamePanel.Instance.hpw += GamePanel.Instance.hpw / (float)player.maxHp * changeValue;
