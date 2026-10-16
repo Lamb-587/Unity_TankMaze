@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Control\CustomGUIInput.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\UI\QuitPanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\Object\PlayerObj.cs" />
+    <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\UI\UGUI\RewardPanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\BeginScene\BeginPanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\UI\LosePanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\Data\DataMusic.cs" />

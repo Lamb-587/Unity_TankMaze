@@ -22,10 +22,10 @@ public class PropReward : MonoBehaviour
             switch (type)
             {
                 case E_PropType.Atk:
-                    player.atk += changeValue;
+                    player.AddBuff(E_PropType.Atk, changeValue);
                     break;
                     case E_PropType.Def:
-                    player.def += changeValue;
+                    player.AddBuff(E_PropType.Def, changeValue);
                     break;
                     case E_PropType.MaxHp:
                     //GamePanel.Instance.hpw += GamePanel.Instance.hpw / (float)player.maxHp * changeValue;
