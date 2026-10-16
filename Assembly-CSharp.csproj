@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\实践小项目\Game\Data\DataMusic.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\BeginScene\RankPanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\BeginScene\BasePanel.cs" />
+    <Compile Include="Assets\Scripts\实践小项目\Game\Data\BuffInfo.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\UI\GamePanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Control\CustomGUILabel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Base\CustomGUIPos.cs" />

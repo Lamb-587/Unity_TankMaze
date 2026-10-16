@@ -8,6 +8,23 @@ public class PlayerObj : TankBaseObj
     public Transform weaponPos;
     public CharacterController cc;
     private float v;
+    public List<BuffInfo> buffList = new List<BuffInfo>();
+    public float buffDuration = 60f;
+    public void AddBuff(E_PropType type,int value)
+    {
+        //同类buff已存在，只刷新时间，不叠加数值
+        BuffInfo exist=buffList.Find(b=>b.type==type);
+        if(exist!=null)
+        {
+            exist.remainingTime = exist.totalTime;
+            return;
+        }
+        //立即生效
+        if (type == E_PropType.Atk) atk += value;
+        else if (type == E_PropType.Def) def += value;
+        else return;
+        buffList.Add(new BuffInfo { type=type, value = value ,totalTime=buffDuration,remainingTime=buffDuration});
+    }
     public override void Fire()
     {
         if (nowWeapon != null)
@@ -50,6 +67,18 @@ public class PlayerObj : TankBaseObj
         if(Input.GetMouseButtonDown(0))
         {
             Fire();
+        }
+        //从后往前遍历，方便删除
+        for(int i = buffList.Count - 1; i >= 0; i--)
+        {
+            buffList[i].remainingTime-= Time.deltaTime;
+            if (buffList[i].remainingTime <= 0)
+            {
+                //到期回退数值
+                if (buffList[i].type == E_PropType.Atk) atk -= buffList[i].value;
+                else if (buffList[i].type==E_PropType.Def) def -= buffList[i].value;
+                buffList.RemoveAt(i);
+            }
         }
     }
     public void ChangeWeapon(GameObject weapon)
