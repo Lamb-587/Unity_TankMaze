@@ -10,6 +10,8 @@ public class RewardPanel : MonoBehaviour
     public Image atkFill;
     public GameObject defIcon;
     public Image defFill;
+    public Text atkText;
+    public Text defText;
 
     private BuffInfo atkBuff;
     private BuffInfo defBuff;
@@ -21,10 +23,10 @@ public class RewardPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        atkBuff=RefreshSlot(E_PropType.Atk,atkBuff,atkIcon,atkFill);
-        defBuff=RefreshSlot(E_PropType.Def,defBuff,defIcon,defFill);
+        atkBuff=RefreshSlot(E_PropType.Atk,atkBuff,atkIcon,atkFill,atkText);
+        defBuff=RefreshSlot(E_PropType.Def,defBuff,defIcon,defFill,defText);
     }
-    private BuffInfo RefreshSlot(E_PropType type,BuffInfo cache,GameObject icon,Image fill)
+    private BuffInfo RefreshSlot(E_PropType type,BuffInfo cache,GameObject icon,Image fill,Text textRemainingTime)
     {
         //缓存失败（不存在或已经过期）就重新找
         if(cache== null || cache.remainingTime <= 0)
@@ -35,6 +37,8 @@ public class RewardPanel : MonoBehaviour
         if(cache!=null)
         {
             fill.fillAmount = cache.remainingTime / cache.totalTime;
+            textRemainingTime.text = cache.remainingTime.ToString("F2");
+            
         }
         return cache;
     }
