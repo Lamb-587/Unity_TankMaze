@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\Object\Receiver.cs" />
+    <Compile Include="Assets\Scripts\实践小项目\Game\BeginScene\LevelRankPanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\Object\BreakCube.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\Object\MonsterObj.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\Data\RankInfo.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Control\CustomGUIToggle.cs" />
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Base\CustomGUIControl.cs" />
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Control\CustomGUIButton.cs" />
-    <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\UI\LevelRankPanel.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\Weapon\WeaponObj.cs" />
     <Compile Include="Assets\Scripts\实践小项目\Game\GameScene\Reward\PropReward.cs" />
     <Compile Include="Assets\Scripts\实践小项目\CustomGUI\Base\CustomGUIRoot.cs" />
