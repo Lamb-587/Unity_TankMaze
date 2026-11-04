@@ -10,7 +10,7 @@ public class CustomGUIRoot : MonoBehaviour
 
     void Start()
     {
-        allControls = this.GetComponentsInChildren<CustomGUIControl>();
+        allControls = this.GetComponentsInChildren<CustomGUIControl>(true);
     }
 
     //在这同一绘制子对象控件的内容
@@ -26,7 +26,8 @@ public class CustomGUIRoot : MonoBehaviour
         //遍历每一个控件 让其 执行绘制
         for (int i = 0; i < allControls.Length; i++)
         {
-            allControls[i].DrawGUI();
+            if (allControls[i].gameObject.activeInHierarchy)  // 冻住的数组+每帧活性检查
+                allControls[i].DrawGUI();
         }
     }
 }

@@ -13,7 +13,7 @@ public class LosePanel : BasePanel<LosePanel>
         btnRestart.clickEvent += () =>
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene("GameScene " + GameDataManager.Instance.levelIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         };
         btnReturnMenu.clickEvent += () =>
         {

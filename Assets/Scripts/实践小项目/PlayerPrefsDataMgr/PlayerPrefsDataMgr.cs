@@ -127,7 +127,7 @@ public class PlayerPrefsDataMgr
         //判断是不是Dictionary类型 通过Dictionary的父类来判断
         else if( typeof(IDictionary).IsAssignableFrom(fieldType) )
         {
-            //父类装自来
+            //父类装子类
             IDictionary dic = value as IDictionary;
             //先存字典长度
             PlayerPrefs.SetInt(keyName, dic.Count);
