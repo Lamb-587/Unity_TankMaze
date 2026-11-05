@@ -45,7 +45,8 @@ public class MonsterObj : TankBaseObj
         RandomPos();
         tempTime = showTime;
     }
-
+    void OnEnable() { CustomGUIRoot.monsters.Add(this); }
+    void OnDisable() { CustomGUIRoot.monsters.Remove(this); }
     // Update is called once per frame
     void Update()
     {
@@ -88,11 +89,17 @@ public class MonsterObj : TankBaseObj
         base.Dead();
         GamePanel.Instance.AddScore(10);
     }
-    private void OnGUI()
+    
+    public override void Wound(TankBaseObj other)
     {
-        
-        if(tempTime<=showTime)
-        {
+        base.Wound(other);
+        tempTime = 0;
+    }
+
+    internal void DrawHpBar()
+    {
+        if (tempTime > showTime) { return; }
+        else{
             //画图，画血条，1，把怪物当前位置转换为屏幕位置，
             //摄像机里面提供了API，可以
             Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
@@ -127,11 +134,5 @@ public class MonsterObj : TankBaseObj
             //hpRect.height = maxHpRect.height;
             //GUI.DrawTexture(hpRect, hpTex);
         }
-        
-    }
-    public override void Wound(TankBaseObj other)
-    {
-        base.Wound(other);
-        tempTime = 0;
     }
 }

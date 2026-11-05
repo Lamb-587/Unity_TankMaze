@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerObj : TankBaseObj
@@ -10,7 +11,9 @@ public class PlayerObj : TankBaseObj
     private float v;
     public List<BuffInfo> buffList = new List<BuffInfo>();
     public float buffDuration = 60f;
-    private float ySpeed = 0;
+    
+    private float groundY;
+
     public void AddBuff(E_PropType type,int value)
     {
         //同类buff已存在，只刷新时间，不叠加数值
@@ -33,8 +36,11 @@ public class PlayerObj : TankBaseObj
             nowWeapon.Fire();
         }
     }
+    private void Start()
+    {
+        groundY = transform.position.y;  // 记录出生高度
+    }
 
-    
     public override void Dead()
     {
         //玩家坦克，复写的死亡函数不可以把自己销毁，因为我们的主摄像机在玩家物体子对象下面，
@@ -61,12 +67,9 @@ public class PlayerObj : TankBaseObj
         // 注意：CharacterController.Move 需要每帧都调用
         Vector3 move = transform.forward * v * moveSpeed * Time.deltaTime;
         cc.Move(move);  // 会被墙自动挡住，不会穿
-        // 重力累积
-        ySpeed += Physics.gravity.y * Time.deltaTime;
-        // 组装移动向量：水平 + 竖直
-        CollisionFlags flags = cc.Move((move + Vector3.up * ySpeed) * Time.deltaTime);
-        // 踩到地面就把下落速度清零，否则一直累积
-        if (flags.HasFlag(CollisionFlags.Below)) ySpeed = 0;
+        // 锁死Y：任何来源的竖直位移，每帧打回地面高度
+        Vector3 pos = transform.position;
+        transform.position = new Vector3(pos.x, groundY, pos.z);
         //身子旋转
         this.transform.Rotate(Input.GetAxis("Horizontal")*Vector3.up * roundSpeed * Time.deltaTime);
         //鼠标左右旋转
